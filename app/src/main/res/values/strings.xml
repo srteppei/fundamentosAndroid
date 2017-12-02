@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Fundamentos Android KC</string>
+
+    <string name="table_number">Número de mesa</string>
+    <!-- card_table -->
+    <string name="card_table_image">Imagen mesa</string>
+    <string name="card_table_description">Descripción de la mesa</string>
+    <!-- fragment table view -->
+    <string name="fragment_table_view_id">Número de mesa: %1$s</string>
+    <!-- activity table -->
+    <string name="activity_table_btn_bill">Cuenta</string>
+    <string name="activity_table_btn_plate">Añadir plato</string>
+    <!-- plate recyclerview adapter -->
+    <string name="adapter_recyclerview_plate_price">Precio:</string>
+    <!-- activity plate recycler view -->
+    <string name="activity_plate_recycler_view_cancel">Cancelar</string>
+    <!-- activity plate detail -->
+    <string name="activity_plate_detail_add">Añadir</string>
+
+</resources>
