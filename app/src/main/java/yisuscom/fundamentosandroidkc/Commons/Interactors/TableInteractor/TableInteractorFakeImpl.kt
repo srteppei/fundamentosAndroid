@@ -7,14 +7,22 @@ import yisuscom.fundamentosandroidkc.Commons.Domains.Table
  */
 class TableInteractorFakeImpl: TableInteractor {
 
+    val fakeTables = ArrayList<Table>()
+
+    constructor() {
+        fakeTables.add(Table(1))
+        fakeTables.add(Table(2))
+        fakeTables.add(Table(3))
+        fakeTables.add(Table(4))
+        fakeTables.add(Table(5))
+    }
+
     override fun getTables(): ArrayList<Table> {
-        val tables = ArrayList<Table>()
-        tables.add(Table(1))
-        tables.add(Table(2))
-        tables.add(Table(3))
-        tables.add(Table(4))
-        tables.add(Table(5))
-        return tables
+        return fakeTables
+    }
+
+    override fun getTable(position: Int): Table {
+        return fakeTables.get(position)
     }
 
 }

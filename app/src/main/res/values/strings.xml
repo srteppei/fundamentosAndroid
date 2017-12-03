@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">Fundamentos Android KC</string>
 
+    <string name="bill">Cuenta</string>
+    <string name="bill_pay">Ha pagar</string>
+
     <string name="table_number">Número de mesa</string>
     <!-- card_table -->
     <string name="card_table_image">Imagen mesa</string>
@@ -16,5 +19,6 @@
     <string name="activity_plate_recycler_view_cancel">Cancelar</string>
     <!-- activity plate detail -->
     <string name="activity_plate_detail_add">Añadir</string>
+
 
 </resources>

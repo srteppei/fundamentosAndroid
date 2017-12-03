@@ -31,7 +31,7 @@ class TableRecyclerViewAdapter(val tables: ArrayList<Table>) : RecyclerView.Adap
     }
 
     override fun onBindViewHolder(holder: TableViewHolder?, position: Int) {
-        holder?.bindTable(tables[position])
+        holder?.bindTable(tables[position],position)
     }
 
     inner class TableViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -40,15 +40,15 @@ class TableRecyclerViewAdapter(val tables: ArrayList<Table>) : RecyclerView.Adap
         val tableDescription = itemView.findViewById<TextView>(R.id.tableDescription)
         var tableViewHolderClick: TableViewHolderClick? = null
 
-        fun bindTable (table: Table) {
+        fun bindTable (table: Table,position: Int) {
             tableNumber.setText(table.id.toString())
             tableDescription.setText(table.description)
-            itemView.setOnClickListener { tableViewHolderClick?.clicked(table) }
+            itemView.setOnClickListener { tableViewHolderClick?.clicked(position) }
         }
     }
 
     interface TableViewHolderClick {
-        fun clicked (table: Table)
+        fun clicked (position: Int)
     }
 
 }

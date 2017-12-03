@@ -10,6 +10,7 @@ import kotlinx.android.synthetic.main.activity_plate_recycler_view.*
 import yisuscom.fundamentosandroidkc.Commons.Domains.Plate
 import yisuscom.fundamentosandroidkc.Commons.Interactors.PlateInteractor.PlateInteractor
 import yisuscom.fundamentosandroidkc.Commons.Interactors.PlateInteractor.PlateInteractorFakeImpl
+import yisuscom.fundamentosandroidkc.Di.CoreAssembly
 import yisuscom.fundamentosandroidkc.Plate.Fragments.PlateRecyclerViewFragment
 import yisuscom.fundamentosandroidkc.R
 
@@ -23,7 +24,7 @@ class PlateRecyclerViewActivity : AppCompatActivity(), PlateRecyclerViewFragment
         }
     }
 
-    val plateInteractor: PlateInteractor = PlateInteractorFakeImpl()
+    val plateInteractor: PlateInteractor = CoreAssembly.getInstance().interactorAssembly.getPlateInteraactor()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -12,6 +12,14 @@ import yisuscom.fundamentosandroidkc.R
 
 class PlateDetailActivity : AppCompatActivity() {
 
+    val photos: Map<String, Int> = mapOf(
+            "pizza" to R.drawable.pizza,
+            "emperador" to R.drawable.emperador,
+            "espaguetis" to R.drawable.espaguetis,
+            "hamburguesa_completa" to R.drawable.hamburguesa_completa,
+            "fallafel" to R.drawable.fallafel
+    )
+
     companion object {
         val EXTRA_PLATE = "EXTRA_PLATE"
 
@@ -22,9 +30,17 @@ class PlateDetailActivity : AppCompatActivity() {
         }
     }
 
+    lateinit var plate: Plate
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_plate_detail)
+
+        plate = intent.getSerializableExtra(EXTRA_PLATE) as Plate
+
+        productName.text = plate.name
+        productDescription.text = plate.description
+        productImage.setImageResource(photos[plate.photo] ?: R.drawable.plate)
 
         btnCancelDetail.setOnClickListener {
             setResult(Activity.RESULT_CANCELED)
@@ -33,8 +49,7 @@ class PlateDetailActivity : AppCompatActivity() {
 
         btnAdd.setOnClickListener {
             val returnIntent = Intent()
-            val plate = intent.getSerializableExtra(EXTRA_PLATE) as Plate
-            plate.annotations = "yabayabadu"
+            plate.annotations = editText.text.toString()
             returnIntent.putExtra(EXTRA_PLATE,plate)
             setResult(Activity.RESULT_OK,intent)
             finish()

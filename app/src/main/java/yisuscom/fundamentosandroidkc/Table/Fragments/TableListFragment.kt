@@ -11,6 +11,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import yisuscom.fundamentosandroidkc.Commons.Domains.Table
+import yisuscom.fundamentosandroidkc.Di.CoreAssembly
 import yisuscom.fundamentosandroidkc.R
 import yisuscom.fundamentosandroidkc.Table.Adapters.TableRecyclerViewAdapter
 
@@ -51,8 +52,8 @@ class TableListFragment: Fragment() {
 
             adapter.tableViewHolderClick = (object : TableRecyclerViewAdapter.TableViewHolderClick {
 
-                override fun clicked(table: Table) {
-                    onTableSelectedListener?.onTableSelected(table)
+                override fun clicked(position: Int) {
+                    onTableSelectedListener?.onTableSelected(position)
                 }
 
             })
@@ -87,7 +88,7 @@ class TableListFragment: Fragment() {
     }
 
     interface OnTableSelectedListener {
-        fun onTableSelected(table: Table)
+        fun onTableSelected(position: Int)
     }
 
 }

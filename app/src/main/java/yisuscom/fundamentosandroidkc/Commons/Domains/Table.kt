@@ -16,8 +16,12 @@ data class Table (val id: Int, val description: String): Serializable {
         return this
     }
 
-    fun getTotalPrice (): Float {
-        var totalPrice: Float = 0F
+    fun getPlates (): ArrayList<Plate> {
+        return plates
+    }
+
+    fun getTotalPrice (): Double {
+        var totalPrice: Double = 0.0
         plates.forEach { plate ->
             totalPrice += plate.price
         }

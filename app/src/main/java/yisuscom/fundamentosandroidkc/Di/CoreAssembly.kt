@@ -8,6 +8,19 @@ import yisuscom.fundamentosandroidkc.Commons.Interactors.Di.InteractorAssembly
  */
 class CoreAssembly {
 
+    companion object {
+
+        private var coreAssembly: CoreAssembly? = null
+
+        fun getInstance (): CoreAssembly {
+            if (coreAssembly == null) coreAssembly = CoreAssembly()
+            return coreAssembly!!
+        }
+    }
+
     val interactorAssembly = InteractorAssembly()
+
+
+
 
 }

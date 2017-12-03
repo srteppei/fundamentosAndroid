@@ -24,7 +24,7 @@ class PlateRecyclerViewFragment : Fragment() {
 
         val ARG_PLATES = "ARG_PLATES"
 
-        fun newInstance(plates: ArrayList<Plate>): android.app.Fragment {
+        fun newInstance(plates: ArrayList<Plate>): PlateRecyclerViewFragment {
             val arguments = Bundle()
             arguments.putSerializable(ARG_PLATES, plates)
             val fragment = PlateRecyclerViewFragment()
@@ -35,6 +35,8 @@ class PlateRecyclerViewFragment : Fragment() {
     }
 
     lateinit var root: View
+    lateinit var plates: ArrayList<Plate>
+    lateinit var adapter: PlateRecyclerViewAdapter
     private var plateRecyclerViewFragmentListener: PlateRecyclerViewFragmentListener? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,12 +46,14 @@ class PlateRecyclerViewFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
 
+        plates = arguments.getSerializable(ARG_PLATES) as ArrayList<Plate>
+
         if (inflater != null) {
             root = inflater.inflate(R.layout.fragment_plate_recyclerview, container, false)
             val tableRecycler = root.findViewById<RecyclerView>(R.id.recyclerViewPlates)
             tableRecycler.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
             tableRecycler.itemAnimator = DefaultItemAnimator()
-            val adapter = PlateRecyclerViewAdapter(arguments.getSerializable(ARG_PLATES) as ArrayList<Plate>)
+            adapter = PlateRecyclerViewAdapter(plates)
 
             adapter.plateRecyclerViewHolderClick = (object : PlateRecyclerViewAdapter.PlateRecyclerViewHolderClick {
 
@@ -62,6 +66,10 @@ class PlateRecyclerViewFragment : Fragment() {
         }
 
         return root
+    }
+
+    fun update() {
+        adapter.notifyItemInserted(adapter.plates.count() - 1)
     }
 
     override fun onDetach() {

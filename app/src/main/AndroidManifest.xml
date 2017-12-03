@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="yisuscom.fundamentosandroidkc">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -16,7 +18,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Playground.test" />
         <activity android:name=".Commons.Activities.TableActivity" />
         <activity android:name=".Commons.Activities.PlateRecyclerViewActivity" />
         <activity android:name=".Commons.Activities.PlateDetailActivity"></activity>

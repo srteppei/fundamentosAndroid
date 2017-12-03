@@ -8,6 +8,8 @@ import yisuscom.fundamentosandroidkc.Commons.Domains.Table
 
 interface TableInteractor {
 
-    abstract fun getTables (): ArrayList<Table>
+    fun getTables (): ArrayList<Table>
+
+    fun getTable (position: Int): Table
 
 }
